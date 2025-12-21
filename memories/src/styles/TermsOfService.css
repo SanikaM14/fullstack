@@ -1,0 +1,73 @@
+.terms-of-service-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.terms-of-service-content {
+  max-width: 800px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(210, 74, 112, 0.15);
+  overflow: hidden;
+  border: 1px solid rgba(210, 74, 112, 0.1);
+  padding: 40px;
+}
+
+.terms-of-service-content h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.terms-of-service-content p {
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #d24a70;
+  margin-bottom: 15px;
+}
+
+.section ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.section li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #666666;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .terms-of-service-container {
+    padding: 20px 15px;
+  }
+  
+  .terms-of-service-content {
+    padding: 30px 20px;
+  }
+  
+  .terms-of-service-content h1 {
+    font-size: 24px;
+  }
+  
+  .section h2 {
+    font-size: 18px;
+  }
+}

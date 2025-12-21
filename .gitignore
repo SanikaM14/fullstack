@@ -22,8 +22,6 @@ yarn-error.log*
 
 backend/memory-portal/src/main/resources/application.properties
 
-# uploads
-uploads/
 
-# nested repo (ignore it completely)
-memories/
+
+
