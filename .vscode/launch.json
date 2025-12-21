@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MemoryPortalApplication<memory-portal>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.memory.memory_portal.MemoryPortalApplication",
+            "projectName": "memory-portal",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
