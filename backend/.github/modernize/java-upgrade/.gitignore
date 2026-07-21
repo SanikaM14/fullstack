@@ -1,0 +1,10 @@
+target/
+uploads/
+.vscode/
+.idea/
+
+*.log
+
+application.properties
+
+.env

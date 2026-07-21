@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/api/test-upload"
+method: POST
+queryParams:
+  - key: ""
+    value: ""
+    disabled: true
+body:
+  type: formdata
+  content:
+    - type: file
+      key: file
+      src:
+        - /C:/Users/Sanika/OneDrive/Desktop/Pictures/Screenshots/Screenshot 2026-06-04 103955.png
+      description: choose any image
+      disabled: true
+order: 2000

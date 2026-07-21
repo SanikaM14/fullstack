@@ -1,3 +1,6 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "spring-boot.ls.problem.bootVersionValidation.severity": "IGNORE",
+    "spring-boot.ls.problem.bootVersionValidation": "IGNORE"
 }

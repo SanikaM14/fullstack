@@ -1,0 +1,50 @@
+.mascot-companion-wrapper {
+  position: absolute;
+  top: -30px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: companionIdleBob 3s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes companionIdleBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.companion-speech-bubble {
+  position: absolute;
+  bottom: 75px;
+  background: white;
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(210, 74, 112, 0.15);
+  border: 2px solid #FFE0E9;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.companion-tail {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  margin-left: -7px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid white;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
+  z-index: -1;
+}
+
+.companion-icon {
+  width: 70px;
+  height: 70px;
+  filter: drop-shadow(0 4px 8px rgba(210, 74, 112, 0.3));
+}
