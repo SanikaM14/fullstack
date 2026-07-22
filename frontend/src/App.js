@@ -51,7 +51,7 @@ function AppContent() {
 
   useEffect(() => {
     // Explicitly fetch CSRF token on startup and manually set header since Axios cross-origin auto-xsrf can be flaky
-    axios.get('http://localhost:8080/api/auth/csrf').then(res => {
+    axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/auth/csrf`).then(res => {
       if (res.data.token) {
         axios.defaults.headers.common['X-XSRF-TOKEN'] = res.data.token;
       }
@@ -60,7 +60,7 @@ function AppContent() {
   
   const checkAuthStatus = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/user-info');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/user-info`);
       setUser(response.data);
       setLoading(false);
       return response.data;
@@ -77,7 +77,7 @@ function AppContent() {
   
   const loadMemories = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/memories');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/memories`);
       setMemories(response.data);
     } catch (error) {
       console.error('Failed to load memories:', error);
@@ -116,7 +116,7 @@ function AppContent() {
   const handleMemoryDelete = useCallback(async (memoryId) => {
     if (window.confirm('Are you sure you want to delete this memory? This can\'t be undone.')) {
       try {
-        await axios.delete(`http://localhost:8080/api/memories/${memoryId}`);
+        await axios.delete(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/memories/${memoryId}`);
         setMemories(prev => prev.filter(m => m.id !== memoryId));
       } catch (error) {
         console.error('Failed to delete memory:', error);
@@ -127,7 +127,8 @@ function AppContent() {
 
   const handleLogout = useCallback(async () => {
     try {
-      await axios.get('http://localhost:8080/logout');
+      const baseUrl = process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL.replace('/api', '') : 'http://localhost:8080';
+      await axios.get(`${baseUrl}/logout`);
       setUser(null);
       setMemories([]);
     } catch (error) {

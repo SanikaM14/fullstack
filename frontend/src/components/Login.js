@@ -21,10 +21,10 @@ const Login = ({ onClose, onLoginSuccess }) => {
     
     setIsSubmitting(true);
     try {
-      const csrfRes = await axios.get('http://localhost:8080/api/auth/csrf', { withCredentials: true });
+      const csrfRes = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/auth/csrf`, { withCredentials: true });
       const csrfToken = csrfRes.data.token;
       
-      await axios.post('http://localhost:8080/api/auth/login', {
+      await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/auth/login`, {
         email: email.trim().toLowerCase(),
         password
       }, { 

@@ -50,10 +50,10 @@ const Register = ({ onClose }) => {
     try {
       const sanitizedEmail = email.trim().toLowerCase();
       
-      const csrfRes = await axios.get('http://localhost:8080/api/auth/csrf', { withCredentials: true });
+      const csrfRes = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/auth/csrf`, { withCredentials: true });
       const csrfToken = csrfRes.data.token;
 
-      await axios.post('http://localhost:8080/api/auth/register', {
+      await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/auth/register`, {
         name: name.trim(),
         email: sanitizedEmail,
         password
@@ -62,7 +62,7 @@ const Register = ({ onClose }) => {
         headers: { 'X-XSRF-TOKEN': csrfToken }
       });
       
-      await axios.post('http://localhost:8080/api/auth/login', {
+      await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/auth/login`, {
         email: sanitizedEmail,
         password
       }, { 

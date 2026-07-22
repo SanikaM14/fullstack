@@ -23,7 +23,7 @@ const UploadBox = ({ onMemoryAdded }) => {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/user-info', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/user-info`, {
         withCredentials: true
       });
       
@@ -80,7 +80,7 @@ const UploadBox = ({ onMemoryAdded }) => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:8080/api/upload', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:8080/api'}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
